@@ -1,6 +1,12 @@
 body{
-  margin: 0;
+  margin: auto;
+  background: url("../images/bg4.jpg");
+ /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100%;
 }
+
 canvas {
   border: 2px solid black;
   background:rebeccapurple;

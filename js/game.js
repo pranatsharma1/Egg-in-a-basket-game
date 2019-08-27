@@ -189,7 +189,7 @@
 var check=0;
 var bw=210,bh=100;                              //bw=width of basket and bh=height of basket
 var ew=140,eh=80;                               //ew=width of egg and eh=height of egg
-var f1=0,f2=0,f3=0,f4=0,f5=0,f6=0,f7=0,f8=0;              //flags 
+var f1=0,f2=0,f3=0,f4=0,f5=0,f6=0,f7=0,f8=0,f9=0;              //flags 
 var ey=550;                                     //initial distance of egg from top of canvas
 var ex=655;                                     //initial distance of egg from left of canvas
 var x1=620,x2=420,x3=20;                        //x1=bask1,x2=bask2,x3=bask3 horizontal distances from left side of canvas
@@ -204,7 +204,7 @@ window.onload = function(){
   function myFunction() 
   {
     f3++;
-    f4=0,f5=0,f6=0,f8=0,temp=0;
+    f4=0,f5=0,f6=0,f8=0,f9=0,temp=0;
     
   }
   var canvas = document.getElementById('canvas');
@@ -224,7 +224,7 @@ function draw()
     var basket3 = new Image();                           //declaring the third basket
     var bg = new Image();                                //declaring the background of canvas
 
-    bg.src = "../images/bg.jpg";                         //giving the source of background image
+    bg.src = "../images/bg9.jpg";                         //giving the source of background image
     egg.src = "../images/egg(2).png";                    //giving the source of image of egg
     basket1.src = "../images/basketgame.png";            //giving the source of image of first basket
     basket2.src = "../images/basketgame.png";            //giving the source of image of second basket
@@ -248,33 +248,33 @@ function draw()
       {
          x1=x1-5;
          f7=1;
-         if(x1==0)
+         if(x1<=0)
          f7=0;
       }
     }
     
     //setting the motion of basket2
     if(x2+210<canvas.width && f1==0)                  
-     x2=x2+5;
+     x2=x2+8;
 
      else
     {
-        x2=x2-5;
+        x2=x2-8;
         f1=1;
-        if(x2==0)
+        if(x2<=0)
         f1=0;
     }
 
     // setting the motion of basket3
        if(x3+210<canvas.width && f2==0)
        {
-          x3=x3+5;
+          x3=x3+12;
        }
        else
        {
-           x3=x3-5;
+           x3=x3-12;
            f2=1;
-           if(x3==0)
+           if(x3<=0)
            f2=0;
        }
 
@@ -287,8 +287,8 @@ function draw()
             if(ey<=280)
             temp=1;
 
-            if(temp==1 && !(ex>=x2-10 && ex<=x2+180))
-               ey+=gravity;    
+            if(temp==1 && f9==0)
+              ey+=gravity;   
             
             else if(ey>280&&temp==0)
                ey-=gravity;
@@ -297,32 +297,26 @@ function draw()
         
         if(f8==1)
         {
-            if(ex>=x2-10 && ex<=x2+180){
-        
-            ex=x2+35;
-            ey=y2;
-            f4=1;
-            f5=0;
+            if(ex>=x2-10 && ex<=x2+180 && ey<=y2+80 )
+            {
+              f9=1;
+              ex=x2+35;
+              ey=y2;
+              f4=1;
+              f5=0;
 
-            // if(pr==0)
-            // {
-            //   //ey=330;
-            // //   ex=x2+35;
-            // //   f4=1;
-            // //   f5=0;
-            // }
-          if(y2<550)
-          {   
-              y2+=4;
-              y3+=4;
-              y1+=2;
-              if(y1>560)
-              {
-                y1=0;
-                pr=1;
-              }  
-          }
-        }
+              if(y2<550)
+              {   
+                 y2+=4;
+                 y3+=4;
+                 y1+=2;
+                 if(y1>560)
+                {
+                  y1=0;
+                  pr=1;
+                }  
+              }
+           }
        
         }  
     }
@@ -336,28 +330,27 @@ function draw()
             if(ey<=280)
             temp=1;
 
-            if(temp==1&&ey!=330)
-               ey+=gravity;    
+            // if(temp==1&&ey!=330)
+            //    ey+=gravity;    
+            if(temp==1 && f9==0)
+               {ey+=gravity;}    
+
             
             else if(ey>280&&temp==0)
                ey-=gravity;
  
         }    
         
-        if(f8==1 && (ex>=x3-10 && ex<=x3+180))
+        if(f8==1)
         {
+            if((ex>=x3-10 && ex<=x3+180) && (ey<=y3+80))
+            {
+            f9=1;
             ex=x3+35;
             ey=y3;
             f4=1;
             f5=0;
 
-            if(pr==0)
-            {
-              //ey=330;
-            //   ex=x2+35;
-            //   f4=1;
-            //   f5=0;
-            }
           if(y3<550)
           {
               
@@ -370,6 +363,7 @@ function draw()
                 pr=1;
               }  
           }
+        }
         }  
     }
 
@@ -381,28 +375,27 @@ function draw()
             if(ey<=280)
             temp=1;
 
-            if(temp==1&&ey!=330)
-               ey+=gravity;    
+            // if(temp==1&&ey!=330)
+            //    ey+=gravity;    
+            if(temp==1 && f9==0)
+              { ey+=gravity;}   
             
             else if(ey>280&&temp==0)
                ey-=gravity;
  
         }    
         
-        if(f8==1 && (ex>=x1-10 && ex<=x1+180))
+        if(f8==1)
         {
+            if( (ex>=x1-10 && ex<=x1+180)&&ey<=y1+80)
+            {
+            f9=1;
             ex=x1+35;
             ey=y1;
             f4=1;
             f5=0;
 
-            if(pr==0)
-            {
-              //ey=330;
-            //   ex=x2+35;
-            //   f4=1;
-            //   f5=0;
-            }
+           
           if(y1<550)
           {     
               y1+=4;
@@ -414,6 +407,7 @@ function draw()
                 pr=1;
               }  
           }
+        }
         }  
     }
     

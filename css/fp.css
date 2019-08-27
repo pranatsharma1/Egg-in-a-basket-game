@@ -1,0 +1,36 @@
+body{
+    margin:0;
+    background-color: #ebbc50;
+    color: white;
+    animation: animate1 16s ease-in-out infinite;
+}
+
+#desc{
+    display : grid;
+    grid-template-columns: 72% 28%;
+    border-style:solid;
+    border-block-color: black;
+}
+h1{
+    font-size: 54px;
+    text-align: center;
+}
+h2{
+    font-size:34px;
+    text-align: center;
+}
+li{
+    font-size: 26px;
+}
+
+@keyframes animate1{
+    0%,100%{
+        background-image: url("../images/bg1.jpg");
+    }
+    40%{
+        background-image: url("../images/bg2.jpg");
+    }
+    80%{
+        background-image: url("../images/bg3.jpg");
+    }
+}

@@ -50,7 +50,7 @@ function draw()
     c.drawImage(basket2,x2,y2,bw,bh);                    //drawing the image of basket2 at x1,y=300 and bw=210,bh=130
     c.drawImage(basket3,x3,y3,bw,bh);                    //drawing the image of basket3 at x2,y=80 and bw=210,bh=130
 
-    if(ey==330)
+    if(ey==350)
     f8=1;
     if(ey>680)
     g=1;
@@ -111,7 +111,7 @@ function draw()
                
         }    
         
-        if(f8==1)
+        if((f8==1)||f3%3==1)
         {
             if(ex>=x2-10 && ex<=x2+180 && ey<=y2+80 )
             {
@@ -157,7 +157,7 @@ function draw()
  
         }    
         
-        if(f8==1)
+        if(f8==1||f3%3==2)
         {
             if((ex>=x3-10 && ex<=x3+180) && (ey<=y3+80))
             {
@@ -201,10 +201,11 @@ function draw()
  
         }    
         
-        if(f8==1)
+        if(f8==1||f3%3==0)
         {
             if( (ex>=x1-10 && ex<=x1+180)&&ey<=y1+80)
             {
+              console.log(f3);
             f9=1;
             ex=x1+35;
             ey=y1;

@@ -58,11 +58,11 @@ function draw()
     if(pr==1)
     {
         if(x1+210<canvas.width && f7==0)                  
-          x1=x1+5;
+          x1=x1+5+0.15*f3;
 
       else
       {
-         x1=x1-5;
+         x1=x1-5-0.2*f3;
          f7=1;
          if(x1<=0)
          f7=0;
@@ -71,11 +71,11 @@ function draw()
     
     //setting the motion of basket2
     if(x2+210<canvas.width && f1==0)                  
-     x2=x2+8;
+     x2=x2+8+0.1*f3;
 
      else
     {
-        x2=x2-8;
+        x2=x2-8-0.1*f3;
         f1=1;
         if(x2<=0)
         f1=0;
@@ -84,11 +84,11 @@ function draw()
     // setting the motion of basket3
        if(x3+210<canvas.width && f2==0)
        {
-          x3=x3+12;
+          x3=x3+12+0.2*f3;
        }
        else
        {
-           x3=x3-12;
+           x3=x3-12-0.18*f3;
            f2=1;
            if(x3<=0)
            f2=0;
